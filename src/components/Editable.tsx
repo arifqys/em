@@ -214,6 +214,7 @@ const Editable = ({
 
   useEffect(() => {
     editableNonceRef.current = state.editableNonce
+    setIsTapped(false)
   }, [state.editableNonce])
 
   const lexeme = getLexeme(state, value)
@@ -432,7 +433,7 @@ const Editable = ({
       shortcutEmitter.off('shortcut', flush)
       showDuplicationAlert(false, dispatch)
     }
-  }, [isEditing, cursorOffset, state.dragInProgress])
+  }, [isEditing, cursorOffset, state.dragInProgress, editableNonceRef.current])
 
   /** Performs meta validation and calls thoughtChangeHandler immediately or using throttled reference. */
   const onChangeHandler = (e: ContentEditableEvent) => {

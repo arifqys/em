@@ -60,6 +60,8 @@ const bumpThoughtDown = (state: State, { simplePath }: { simplePath?: SimplePath
     // set cursor
     setCursor({
       path: simplePathWithNewRankAndValue,
+      editing: true,
+      offset: 0,
     }),
     editableRender,
   ])(state)
